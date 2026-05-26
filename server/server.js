@@ -163,6 +163,21 @@ app.delete("/api/users/:username", (req, res) => {
   return res.status(200).json({ message: `User "${username}" deleted.` });
 });
 
+app.get("/api/yelp/businesses/search", async (req, res) => {
+  const { term, location, sort_by, limit } = req.query;
+  const params = new URLSearchParams({ term, location, sort_by, limit });
+  try {
+    const yelpRes = await fetch(
+      `https://api.yelp.com/v3/businesses/search?${params}`,
+      { headers: { Authorization: `Bearer ${process.env.YELP_KEY}` } }
+    );
+    const data = await yelpRes.json();
+    return res.status(yelpRes.status).json(data);
+  } catch (err) {
+    return res.status(500).json({ error: "Yelp request failed." });
+  }
+});
+
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
