@@ -19,4 +19,4 @@
 
 ## What I Learned During Deployment
 
-The deployment process was comparable to other times I've deployed. I have used both Vercel and Render before and it was about what I expected. But using MongoDB and Atlas was supringly easy to connect to and use so I am glad it was also seamless there.
+The deployment process was comparable to other times I've deployed. I have used both Vercel and Render before and it was about what I expected. But using MongoDB and Atlas was supringly easy to connect to and use so I am glad it was also seamless there. I am curious how deployment differs when you are handling arcitecture on cloud.
